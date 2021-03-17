@@ -1,6 +1,11 @@
-import React, { Component } from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import ApolloClient from 'apollo-boost'
+
+const client = new ApolloClient({
+  uri: '/.netlify/functions/graphql'
+})
 
 class LambdaDemo extends Component {
   constructor(props) {
@@ -8,13 +13,13 @@ class LambdaDemo extends Component {
     this.state = { loading: false, msg: null }
   }
 
-  handleClick = api => e => {
+  handleClick = (api) => (e) => {
     e.preventDefault()
 
     this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
-      .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.msg }))
+    fetch('/.netlify/functions/' + api)
+      .then((response) => response.json())
+      .then((json) => this.setState({ loading: false, msg: json.msg }))
   }
 
   render() {
@@ -22,8 +27,12 @@ class LambdaDemo extends Component {
 
     return (
       <p>
-        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
-        <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
+        <button onClick={this.handleClick('hello')}>
+          {loading ? 'Loading...' : 'Call Lambda'}
+        </button>
+        <button onClick={this.handleClick('async-dadjoke')}>
+          {loading ? 'Loading...' : 'Call Async Lambda'}
+        </button>
         <br />
         <span>{msg}</span>
       </p>
