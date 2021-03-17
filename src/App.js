@@ -33,12 +33,8 @@ const LambdaDemo = () => {
         query: helloQuery
       })
 
-      console.log(response)
-
-      return null
-
-      // setMessage(newMessage)
-      // setLoading(false)
+      setMessage(response)
+      setLoading(false)
     } catch (error) {
       return null
     }
