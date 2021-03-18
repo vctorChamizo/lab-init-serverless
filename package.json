@@ -1,35 +1,26 @@
 {
-  "name": "create-react-app-lambda",
-  "version": "0.5.0",
-  "private": true,
-  "dependencies": {
-    "apollo-server-lambda": "^2.21.1",
-    "axios": "^0.19.0",
-    "graphql": "^15.5.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1"
-  },
+  "name": "lab-init-serverless",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vctorChamizo/lab-init-serverless.git",
+  "author": "vctorChamizo <victor.chamizo96@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node src/server.local",
+    "dev": "nodemon src/server.local",
     "start:lambda": "netlify-lambda serve src/lambda",
-    "build": "run-p build:**",
-    "build:app": "react-scripts build",
     "build:lambda": "netlify-lambda build src/lambda",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "yarn install && yarn run build:lambda"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "apollo-server": "^2.21.1",
+    "apollo-server-lambda": "^2.21.1",
+    "encoding": "^0.1.13",
+    "graphql": "^15.5.0",
+    "netlify-lambda": "^2.0.3"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
-    "netlify-lambda": "^1.4.5",
-    "npm-run-all": "^4.1.5"
+    "cpx": "^1.5.0",
+    "nodemon": "^2.0.7"
   }
 }

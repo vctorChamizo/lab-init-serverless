@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server-lambda')
+const { makeExecutableSchema, gql } = require('apollo-server-lambda')
 
 const typeDefs = gql`
   type Query {
@@ -14,9 +14,9 @@ const resolvers = {
   }
 }
 
-const server = new ApolloServer({
+const schema = makeExecutableSchema({
   typeDefs,
   resolvers
 })
 
-exports.handler = server.createHandler()
+module.exports = { schema }
