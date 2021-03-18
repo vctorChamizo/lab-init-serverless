@@ -6,18 +6,21 @@
   "author": "vctorChamizo <victor.chamizo96@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "dev": "nodemon src/index.js",
     "build": "netlify-lambda build src",
-    "start": "netlify-lambda serve src"
+    "start": "netlify-lambda serve src",
+    "build:lambda": "netlify-lambda build src/lambda",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "deploy": "yarn install && yarn run build:lambda && yarn run start:lambda"
   },
   "dependencies": {
-    "graphql": "^15.5.0"
+    "apollo-server": "^2.21.1",
+    "apollo-server-lambda": "^2.21.1",
+    "graphql": "^15.5.0",
+    "netlify-lambda": "^2.0.3"
   },
   "devDependencies": {
-    "apollo-server-lambda": "^2.21.1",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "netlify-lambda": "^1.6.3",
-    "nodemon": "^1.19.2",
-    "serverless-http": "^2.3.0"
+    "cpx": "^1.5.0",
+    "nodemon": "^2.0.7"
   }
 }

@@ -1,5 +1,6 @@
+const { ApolloServer } = require('apollo-server')
 const {
-  ApolloServer,
+  ApolloServer: ApolloServerLambda,
   makeExecutableSchema,
   gql
 } = require('apollo-server-lambda')
@@ -13,7 +14,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => {
-      return 'Hello, worldsdsdsdsdsd!'
+      return 'Hello, wssssorld!'
     }
   }
 }
@@ -23,11 +24,18 @@ const schema = makeExecutableSchema({
   resolvers
 })
 
-const server = new ApolloServer({
-  schema,
-  playground: true
-})
+function createLambdaServer() {
+  return new ApolloServerLambda({
+    schema
+  })
+}
 
-// https://khalilstemmler.com/articles/tutorials/deploying-a-serverless-graphql-api-on-netlify/
+function createLocalServer() {
+  return new ApolloServer({
+    schema,
+    introspection: true,
+    playground: true
+  })
+}
 
-exports.handler = server.createHandler()
+module.exports = { createLambdaServer, createLocalServer }

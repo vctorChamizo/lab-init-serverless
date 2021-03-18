@@ -175,4 +175,4 @@ sketch
 *.code-workspace
 
 ### Apollo-lambda ###
-built-lambda
+functions/**
