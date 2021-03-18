@@ -1,6 +1,4 @@
-const { createLambdaServer } = require('../server')
-
-const server = createLambdaServer()
+const { server } = require('../server.deploy')
 
 exports.handler = server.createHandler({
   cors: {

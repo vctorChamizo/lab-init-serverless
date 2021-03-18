@@ -6,11 +6,10 @@
   "author": "vctorChamizo <victor.chamizo96@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "build": "netlify-lambda build src",
-    "start": "netlify-lambda serve src",
-    "build:lambda": "netlify-lambda build src/lambda",
+    "start": "node src/server.local",
+    "dev": "nodemon src/server.local",
     "start:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda",
     "deploy": "yarn install && yarn run build:lambda"
   },
   "dependencies": {
