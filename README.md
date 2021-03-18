@@ -16,6 +16,8 @@ Open [http://localhost:3000/](http://localhost:4000/api) to view the GraphQl pla
 With this command can start the server like a lambda function and it would ready to deploy in Netlify serverless.<br />
 This options not contain playground display, but you can send Graphql request from tools like Postman.
 
+The API it's deployed [here](https://lab-init-serverless.netlify.app/.netlify/functions/server)
+
 ## Learn More
 
 You can learn more in [Netlify Docs](https://docs.netlify.com/) and [AWS Lambda Docs](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
