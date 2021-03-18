@@ -11,7 +11,7 @@
     "start": "netlify-lambda serve src",
     "build:lambda": "netlify-lambda build src/lambda",
     "start:lambda": "netlify-lambda serve src/lambda",
-    "deploy": "yarn install && yarn run build:lambda && yarn run start:lambda"
+    "deploy": "yarn install && yarn run build:lambda"
   },
   "dependencies": {
     "apollo-server": "^2.21.1",
