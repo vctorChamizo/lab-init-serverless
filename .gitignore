@@ -164,7 +164,7 @@ thumb
 sketch
 
 ### VSCode ###
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -172,4 +172,5 @@ sketch
 *.code-workspace
 
 ### Netlify lambda ###
-build/
+functions/
+
